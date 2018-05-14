@@ -16,7 +16,12 @@ $isbns = array(
   "9781618420169"
 );
 
-function decode_book_isbn($headers, $isbn)
+function html_output($file, $code)
+{
+  fwrite($file, $code);
+}
+
+function decode_book_isbn($file, $headers, $isbn)
 {
   $url = "https://openlibrary.org/api/books?bibkeys=ISBN:" . $isbn . "&jscmd=data&format=json";
 
@@ -33,18 +38,33 @@ function decode_book_isbn($headers, $isbn)
 
   foreach ($json_data as $book) 
   {
-      printf("-----------------------------------------\n");
-      printf("ISBN: %s\n", $isbn);
-      printf("Title: %s\n", $book['title']);
-      printf("Author: %s\n\n", $book['authors'][0]['name']);
+      html_output($file, "-----------------------------------------<br/>\n");
+      html_output($file, "ISBN: " . $isbn . "<br/>\n");
+      html_output($file, "Title: " . $book['title'] . "<br/>\n");
+      html_output($file, "Author: " . $book['authors'][0]['name'] . "<br/>\n");
     }
 
   curl_close($cURL);
 }
 
+
+// Main body
+
+$file = fopen("index.html", "w") or die("Unable to open file!");
+
+
+html_output($file, "<!DOCTYPE html>\n");
+html_output($file, "<html>\n");
+
+
 foreach ($isbns as $isbn)
 {
-  decode_book_isbn($headers, $isbn);
+  decode_book_isbn($file, $headers, $isbn);
 }
+
+html_output($file, "</body>\n");
+html_output($file, "</html>\n");
+
+fclose($file);
 
 ?>
