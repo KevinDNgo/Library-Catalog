@@ -1,0 +1,124 @@
+.wrapper {
+  width: 500px;
+  margin: 2em auto;
+  text-align: center;
+}
+
+// USING SASS SYNTAX
+/*
+This is the visible area of you carousel.
+Set a width here to define how much items are visible.
+The width can be either fixed in px or flexible in %.
+Position must be relative!
+*/
+.jcarousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+    /*
+    This is the container of the carousel items.
+    You must ensure that the position is relative or absolute and
+    that the width is big enough to contain all items.
+    */
+    ul {
+        width: 20000em;
+        position: relative;
+
+        /* Optional, required in this case since it's a <ul> element */
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+
+        /* Clear fix */
+        &:before {
+          content: ' ';
+          display: table;
+        }
+        &:after {
+          content: ' ';
+          display: table;
+        }
+    }
+    /*
+    These are the item elements. jCarousel works best, if the items
+    have a fixed width and height (but it's not required).
+    */
+    li {
+        /* Required only for block elements like <li>'s */
+        float: left;
+        width: 0;
+        height: 100%;
+    }
+}
+
+
+
+
+// Extra CSS
+img {
+  width: 100%
+}
+
+/**
+ *  pagination
+ */
+.jcarousel-pagination {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 5px;
+  padding: 0;
+  margin: 0;
+  a {
+    width: 5px;
+    height: 5px;
+    display: inline-block;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #000;
+    &.active {
+      background: #000
+    }
+  }
+}
+
+
+/* Control*/
+  .jc-left {
+    width: 20px;
+    height: 100%;
+    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .5s;
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: transparent;
+      border-left: 3px solid #ccc;
+      border-bottom: 3px solid #ccc;
+      transform: rotate(45deg);
+      position: absolute;
+      top: 50%;
+      left: 5px
+    }
+    &:hover {
+      background: rgba(0, 0, 0, .5);
+    }
+  }
+  .jc-right {
+    @extend .jc-left;
+    float: right;
+    left: auto;
+    right: 0;
+    &:before {
+      left: auto;
+      right: 5px;
+      transform: rotate(225deg) 
+    }
+  }

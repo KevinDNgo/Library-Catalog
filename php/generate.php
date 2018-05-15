@@ -1,6 +1,5 @@
 <?php
 
-
 $headers = array(
     "Content-type: application/json;charset=\"utf-8\"",
     "Accept: text/xml",
@@ -42,6 +41,7 @@ function decode_book_isbn($file, $headers, $isbn)
       html_output($file, "ISBN: " . $isbn . "<br/>\n");
       html_output($file, "Title: " . $book['title'] . "<br/>\n");
       html_output($file, "Author: " . $book['authors'][0]['name'] . "<br/>\n");
+      html_output($file, "<li><img src=\"" . $book['cover']['large'] . "\"alt=\"\" /></li>\n");
     }
 
   curl_close($cURL);
@@ -55,13 +55,20 @@ $file = fopen("index.html", "w") or die("Unable to open file!");
 
 html_output($file, "<!DOCTYPE html>\n");
 html_output($file, "<html>\n");
+html_output($file, "<head>\n");
+html_output($file, "<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">\n");
+html_output($file, "</head>\n");
 
+html_output($file, "<div class=\"wrapper\">\n<div class=\"jcarousel\">");
+html_output($file, "<ul>\n");
 
 foreach ($isbns as $isbn)
 {
   decode_book_isbn($file, $headers, $isbn);
 }
 
+html_output($file, "</ul>\n");
+html_output($file, "<script src=\"myscripts.js\"></script>");
 html_output($file, "</body>\n");
 html_output($file, "</html>\n");
 
