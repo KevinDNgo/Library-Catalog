@@ -39,7 +39,7 @@ function decode_book_isbn($file, $headers, $isbn)
   {
       
       html_output($file, "<li>\n");
-      html_output($file, "<img src=\"" . $book['cover']['large'] . "\" width=\"350\" height=\"500\" alt>\n");
+      html_output($file, "<img src=\"" . $book['cover']['large'] . "\" width=\"600\" height=\"400\" alt>\n");
 
       html_output($file, "<p>");
       html_output($file, "ISBN: " . $isbn . "<br/>\n");
@@ -92,12 +92,14 @@ html_output($file, "<a href=\"#\" class=\"jcarousel-control-next\" &lsaquo;</a>\
 
 html_output($file, "<p class=\"jcarousel-pagination\" data-jcarouselpagination=\"true\">\n");
 
-html_output($file, "<a href=\"#1\" class=\"active\">1</a>\n");
-html_output($file, "<a href=\"#2\">2</a>\n");
-html_output($file, "<a href=\"#3\">3</a>\n");
-html_output($file, "<a href=\"#4\">4</a>\n");
-html_output($file, "<a href=\"#5\">5</a>\n");
-html_output($file, "<a href=\"#6\">6</a>\n");
+foreach ($isbns as $isbn)
+{
+  if ($isbn == reset($isbns)) {
+    html_output($file, "<a href=\"#" . $isbn . "class=\"active\">" . $isbn . "</a>\n");
+  } else {
+    html_output($file, "<a href=\"#" . $isbn . ">" . $isbn . "</a>\n");
+  }
+}
 
 html_output($file, "</div>\n");
 html_output($file, "</div>\n");
