@@ -92,8 +92,9 @@ foreach ($isbns as $isbn)
 
 html_output($file, "</ul>\n");
 html_output($file, "</div>\n");
-html_output($file, "<a href=\"#\" class=\"jcarousel-control-prev\" &lsaquo;</a>\n");
-html_output($file, "<a href=\"#\" class=\"jcarousel-control-next\" &lsaquo;</a>\n");
+// Displays left and right arrows to navigate through image slider
+html_output($file, "<a href=\"#\" class=\"jcarousel-control-prev\" data-jcarouselcontrol=\"true\">&lsaquo;</a>\n");
+html_output($file, "<a href=\"#\" class=\"jcarousel-control-next\" data-jcarouselcontrol=\"true\">&rsaquo;</a>\n");
 html_output($file, "<p class=\"jcarousel-pagination\" data-jcarouselpagination=\"true\">\n");
 
 // Loops through each ISBN and displays current book's image number
