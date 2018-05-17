@@ -1,6 +1,3 @@
-# Library-Catalog
-
-
 # Introduction
 Hello! If you are reading this, you are likely interested in learning more about this program, learning how to run it yourself, or
 maybe both! This program parses JSON data containing textbook information, and creates a javascript-enabled website which displays
@@ -18,16 +15,20 @@ Before running this program, there are a couple things you have to install befor
 so. Note: this tutorial assumes that you have a fresh installation of Windows 10.
 
 ## Installing PHP
+PHP is a server-side scripting language designed for web development. It is also used as a general-purpose programming language.
+Because of its relative ease of use for the Open Library API, JSON parsing, and HTML writing, it was one of the best choices for this
+project. Unfortunately, on Windows 10, PHP must be manually installed and configured before it can be used. Luckily, however, I will
+outline how this can be accomplished.
 1. Download the PHP ZIP Package from [the PHP website.](https://windows.php.net/download) Download the PHP 7.2.5 VC15 x64 Non Thread Safe 
 ZIP file. Be sure to virus scan the file for your safety.
 2. Extract the files. Create a folder in your computer and extract the contents of the ZIP file into it. Of course
-you can place the folder anywhere, but for this example, we will extract the ZIP contents to C:\php.
-3. Add C:\php to the path environment variable. To ensure that Windows can find PHP, you need to change the path environment
+you can place the folder anywhere, but for this example, we will extract the ZIP contents to **C:\php**.
+3. Add **C:\php** to the path environment variable. To ensure that Windows can find PHP, you need to change the path environment
 variable. From the Control Panel, choose System, select the "Advanced" tab, and click the "Environment Variables" button.
-Scroll down the System variables list and click on "Path" followed by the "Edit" button. Enter ";C:\php" to the end 
+Scroll down the System variables list and click on "Path" followed by the "Edit" button. Enter "**;C:\php**" to the end 
 of the Variable value line (don't forget the semi-colon at the beginning).
 
-4. Verify that everything is working. Open a command prompt, and type in "php -v". If you followed all the directions correctly, 
+4. Verify that everything is working. Open a command prompt, and type in "**php -v**". If you followed all the directions correctly, 
 the command prompt should return the current installed version of PHP.
 
 ## Installing cURL
@@ -40,12 +41,14 @@ framework for quickly installing applications and tools that you need. Installat
 [their website.](https://chocolatey.org/install)
 2. Install cURL using Chocolatey. Once you have successfully installed Chocolatey, all you have to do is open a command prompt
 and enter the following command: "choco install curl"
-3. Verify that cURL is working. Open a command prompt, and type in "curl". If you followed all the directions correctly, the
+3. Verify that cURL is working. Open a command prompt, and type in "**curl**". If you followed all the directions correctly, the
 command prompt should suggest that you type "curl --help" for further information.
 
 ## Running the program
 1. Download the repository ZIP file. Extract the contents of the ZIP to a location that you can navigate to on command prompt.
 2. Execute the program. Open the command prompt and use the cd command to navigate to the folder that contains generate.php.
-Once you find the folder, enter the following command to execute the program: "php .\generate.php". The index.html file containing
+Once you find the folder, enter the following command to execute the program: "**php .\generate.php**". The index.html file containing
 the parsed JSON textbook details should be created in the same folder. You may delete the pre-existing html file before executing the
 command to check that the code is properly creating an HTML file.
+
+And there you have it! Have fun with the project, and feel free to modify it to your heart's content!
