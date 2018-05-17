@@ -14,7 +14,16 @@ $isbns = array(
   "0906812976",
   "0688174841",
   "1582430578",
-  "9781618420169"
+  "9781618420169",
+  "0060786299",
+"9780613581448",
+"9782869781979",
+"34521402",
+"0393046559",
+"9986140730",
+"<script>alert('hello');</script>",
+"0881847380",
+"9782866652715"
 );
 
 // Used to write output to HTML file
@@ -53,7 +62,14 @@ function decode_book_isbn($file, $headers, $isbn)
       html_output($file, "ISBN: " . $isbn . "<br/>\n");
       html_output($file, "Title: " . $book['title'] . "<br/>\n");
       html_output($file, "Author: " . $book['authors'][0]['name'] . "<br/>\n");
-      html_output($file, "Excerpt: " . $book['excerpts'][0]['text'] . "<br/>\n");
+      if ($book['excerpts'][0]['text'] != '') 
+      {
+       html_output($file, "Excerpt: " . $book['excerpts'][0]['text'] . "<br/>\n");
+      }
+      else
+      {
+        html_output($file, "No excerpt found");
+      }
       html_output($file, "</p>");
       html_output($file, "</li>\n");
      }
