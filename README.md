@@ -1,6 +1,17 @@
 # Library-Catalog
-Hello there! If you're reading this, you are likely interested in learning how to install the software necessary to run this 
-program. Assuming you have Windows 10, there are a couple things you have to do before running this program.
+
+
+# Introduction
+Hello! If you are reading this, you are likely interested in learning more about this program, learning how to run it yourself, or
+maybe both! This program parses JSON data containing textbook information, and creates a javascript-enabled website which displays
+some of the textbooks' details. This is accomplished by using the Open Library Books API to obtain textbook information in JSON format
+from provided ISBNs. The program then parses the JSON data for the textbooks' titles, authors, excerpts, and image thumbnails. All this
+information is then written to a javascript-enabled website for consolidated viewing.
+
+All of this is accomplished using PHP, HTML, CSS, and Javascript. PHP is used to obtain the book information in JSON format, parse
+that information, and write the output to HTML format. HTML, CSS, and Javascript is used to display the website content. Additionally,
+jQuery is used for a plug-in called jCarousel. Open source jCarousel code is borrowed in order to display the website information in 
+an image slider format.
 
 # Installing Prerequisite Programs
 Before running this program, there are a couple things you have to install beforehand. Provided below are the instructions to do
@@ -13,7 +24,6 @@ ZIP file. Be sure to virus scan the file for your safety.
 you can place the folder anywhere, but for this example, we will extract the ZIP contents to C:\php.
 3. Add C:\php to the path environment variable. To ensure that Windows can find PHP, you need to change the path environment
 variable. From the Control Panel, choose System, select the "Advanced" tab, and click the "Environment Variables" button.
-
 Scroll down the System variables list and click on "Path" followed by the "Edit" button. Enter ";C:\php" to the end 
 of the Variable value line (don't forget the semi-colon at the beginning).
 
@@ -35,4 +45,7 @@ command prompt should suggest that you type "curl --help" for further informatio
 
 ## Running the program
 1. Download the repository ZIP file. Extract the contents of the ZIP to a location that you can navigate to on command prompt.
-2. Execute the program. 
+2. Execute the program. Open the command prompt and use the cd command to navigate to the folder that contains generate.php.
+Once you find the folder, enter the following command to execute the program: "php .\generate.php". The index.html file containing
+the parsed JSON textbook details should be created in the same folder. You may delete the pre-existing html file before executing the
+command to check that the code is properly creating an HTML file.
