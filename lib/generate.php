@@ -45,7 +45,7 @@ function decode_book_isbn($file, $headers, $isbn)
 
   // Loops through each ISBN and outputs the book's ISBN, title, author, and excerpt
   // Also contains required HTML for each ISBN's output
-  foreach ($json_data as $book) 
+  foreach ((array) $json_data as $book) 
   {  
       html_output($file, "<li>\n");
       html_output($file, "<img src=\"" . $book['cover']['large'] . "\" width=\"600\" height=\"400\" alt>\n");
@@ -63,7 +63,7 @@ function decode_book_isbn($file, $headers, $isbn)
 
 // Main body
 
-// Checks if HTML file exists, and if it does, opens file for writing
+// Checks if HTML file can be opened, and if so, opens file for writing
 $file = fopen("index.html", "w") or die("Unable to open file!");
 
 // Outputs required HTML for document to function. Includes necessary CSS, JS, and JQuery calls
