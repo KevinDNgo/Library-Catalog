@@ -104,6 +104,7 @@ html_output($file, "<ul left: -3000px; top: 0px;>\n");
 foreach ($isbns as $isbn)
 {
   decode_book_isbn($file, $headers, $isbn);
+
 }
 
 html_output($file, "</ul>\n");
@@ -122,7 +123,12 @@ foreach ($isbns as $isbn)
     html_output($file, "<a href=\"#" . $isbn . ">" . $isbn . "</a>\n");
   }
 }
-
+html_output($file, "<p>");
+if (is_int($isbn) == false)
+{
+  html_output($file, "Nonexistent ISBNs: " . $isbn . ", ");
+}
+html_output($file, "</p>");
 html_output($file, "</div>\n");
 html_output($file, "</div>\n");
 html_output($file, "</body>\n");
